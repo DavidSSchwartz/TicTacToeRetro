@@ -1,10 +1,14 @@
-import React from 'react';
+import React from "react";
 import { GameContext } from "../Game/GameProvider";
-import Button from '../Button';
+import Button from "../Button";
+import { CustomizationsContext } from "../Customizations/CustomizationsProvider";
 
 const BoardSpace = ({ index, ...delegated }) => {
   const [value, setValue] = React.useState("");
   const { nextMove, gameStatus, selectSpace } = React.useContext(GameContext);
+  const { xColor, oColor, boardDimensions, letterSize } = React.useContext(
+    CustomizationsContext
+  );
 
   React.useEffect(() => {
     if (gameStatus === "Idle") {
@@ -23,10 +27,20 @@ const BoardSpace = ({ index, ...delegated }) => {
   };
 
   return (
-    <Button className='square' onClick={handleClick} {...delegated}>
+    <Button
+      className='board-space'
+      onClick={handleClick}
+      style={{
+        color: value === "X" ? xColor : oColor,
+        width: parseInt(boardDimensions) / 3,
+        height: parseInt(boardDimensions) / 3,
+        fontSize: letterSize,
+      }}
+      {...delegated}
+    >
       {value}
     </Button>
   );
 };
 
-  export default BoardSpace;
+export default BoardSpace;
