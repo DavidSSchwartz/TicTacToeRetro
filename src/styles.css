@@ -10,9 +10,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-:root {
 
-}
 /* #root{
   display: flex;
 } */
@@ -85,7 +83,40 @@ button[disabled] {
 .board-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  position: relative;
 }
+
+.winner-streak{
+    content: "";
+    position: absolute;
+    width:5px;
+    background-color: red;
+    height: 100%;
+    top: 0;
+    animation: winner-streak 2750ms forwards;
+}
+
+@keyframes winner-streak{
+    0%{
+        opacity: 100%;
+    }
+    20%{
+        opacity: 0;
+    }
+    40%{
+        opacity: 100%;
+    }
+    60%{
+        opacity: 0;
+    }
+    80%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 50%;
+    }
+}
+
 .board-space {
   border: 1px solid black;
   background: transparent;

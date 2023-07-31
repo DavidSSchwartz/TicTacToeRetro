@@ -10,6 +10,7 @@ const GameProvider = ({ children }) => {
   const [gameStatus, setGameStatus] = React.useState("Idle");
   const [selectedSpaces, setSelectedSpaces] = React.useState({});
   const [nextMove, setNextMove] = React.useState("X");
+  const [winnerStreakStyles, setWinnerStreakStyles] = React.useState(null);
 
   const selectSpace = (value, index) => {
     const updatedSpaces = { ...selectedSpaces, [index]: value };
@@ -18,6 +19,7 @@ const GameProvider = ({ children }) => {
     if (winner) {
       setWinner(value);
       setGameStatus("Winner");
+      setWinnerStreakStyles(configureWinnerStreak(winner));
     } else if (Object.keys(updatedSpaces).length === MAX_NUMBER_OF_SPACES) {
       setGameStatus("Tie");
     } else if (Object.keys(updatedSpaces).length >= 0) {
@@ -26,13 +28,14 @@ const GameProvider = ({ children }) => {
       setNextMove(value === "X" ? "O" : "X");
     }
   };
-
+  
   const resetGame = () => {
     setNextMove("X");
     setSelectedSpaces({});
     setGameStatus("Idle");
     if (winner) {
       setWinner("");
+      setWinnerStreakStyles(null);
     }
   };
 
@@ -44,6 +47,7 @@ const GameProvider = ({ children }) => {
         nextMove,
         selectSpace,
         resetGame,
+        winnerStreakStyles,
       }}
     >
       {children}
@@ -72,6 +76,34 @@ const calculateWinner = (squares) => {
       squares[first] === squares[second] &&
       squares[second] === squares[third]
     )
-      return squares[first];
+      return lines[i];
+  }
+};
+
+const configureWinnerStreak = (winningLine) => {
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i].toString() === winningLine.toString()) {
+      if (i < 3) {
+        const styles = { transform: "rotate(90deg)", left: "48%" };
+        if (i === 0) {
+          return { ...styles, top: "-34%" };
+        } else if (i === 1) {
+          return { ...styles, top: "0" };
+        } else if (i === 2) {
+          return { ...styles, top: "34%" };
+        }
+      }
+      if (i === 3) {
+        return { left: "15%" };
+      } else if (i === 4) {
+        return { left: "49%" };
+      } else if (i === 5) {
+        return { right: "15%" };
+      } else if (i === 6) {
+        return { transform: "rotate(-45deg)", left: "49%" };
+      } else if (i === 7) {
+        return { transform: "rotate(45deg)", right: "49%" };
+      }
+    }
   }
 };

@@ -5,9 +5,8 @@ import { GameContext } from "../Game/GameProvider";
 import { CustomizationsContext } from "../Customizations/CustomizationsProvider";
 
 const Board = () => {
-  const { gameStatus } = React.useContext(GameContext);
+  const { gameStatus, winnerStreakStyles } = React.useContext(GameContext);
   const { boardDimensions } = React.useContext(CustomizationsContext);
-
   return (
     <>
       <div
@@ -21,6 +20,9 @@ const Board = () => {
             disabled={!["Idle", "Playing"].includes(gameStatus)}
           ></BoardSpace>
         ))}
+        {winnerStreakStyles && (
+          <div className='winner-streak' style={winnerStreakStyles}></div>
+        )}
       </div>
     </>
   );
