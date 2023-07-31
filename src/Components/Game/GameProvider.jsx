@@ -11,6 +11,7 @@ const GameProvider = ({ children }) => {
   const [selectedSpaces, setSelectedSpaces] = React.useState({});
   const [nextMove, setNextMove] = React.useState("X");
   const [winnerStreakStyles, setWinnerStreakStyles] = React.useState(null);
+  const [confettiActivated, setConfettiActivated] = React.useState(false);
 
   const selectSpace = (value, index) => {
     const updatedSpaces = { ...selectedSpaces, [index]: value };
@@ -20,6 +21,7 @@ const GameProvider = ({ children }) => {
       setWinner(value);
       setGameStatus("Winner");
       setWinnerStreakStyles(configureWinnerStreak(winner));
+      setConfettiActivated(true);
     } else if (Object.keys(updatedSpaces).length === MAX_NUMBER_OF_SPACES) {
       setGameStatus("Tie");
     } else if (Object.keys(updatedSpaces).length >= 0) {
@@ -48,6 +50,7 @@ const GameProvider = ({ children }) => {
         selectSpace,
         resetGame,
         winnerStreakStyles,
+        confettiActivated,
       }}
     >
       {children}
