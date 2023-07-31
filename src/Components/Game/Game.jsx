@@ -22,7 +22,15 @@ export default function Game() {
 
           <Board></Board>
           {confettiActivated && (
-            <Confetti tweenDuration={3000} recycle={winner ? true : false} />
+            <Confetti
+              tweenDuration={3000}
+              recycle={winner ? true : false}
+              // drawShape={(ctx) => {
+              //   ctx.beginPath();
+              //   ctx.font = "30px Arial";
+              //   ctx.strokeText(winner || nextMove, 10, 50);
+              // }}
+            />
           )}
         </fieldset>
 
