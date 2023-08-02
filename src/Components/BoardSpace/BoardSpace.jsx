@@ -5,7 +5,8 @@ import { CustomizationsContext } from "../Customizations/CustomizationsProvider"
 
 const BoardSpace = ({ index, ...delegated }) => {
   const [value, setValue] = React.useState("");
-  const { nextMove, gameStatus, selectSpace } = React.useContext(GameContext);
+  const { nextMove, gameStatus, selectSpace, computersNextMove } =
+    React.useContext(GameContext);
   const { xColor, oColor, boardDimensions, letterSize } = React.useContext(
     CustomizationsContext
   );
@@ -15,6 +16,13 @@ const BoardSpace = ({ index, ...delegated }) => {
       setValue("");
     }
   }, [gameStatus]);
+
+  React.useEffect(() => {
+    if (index === computersNextMove) {
+      setValue("O");
+      selectSpace("O", index);
+    }
+  }, [computersNextMove]);
 
   const handleClick = () => {
     //prevent double clicking
