@@ -7,6 +7,7 @@ const BoardSpace = ({ index, ...delegated }) => {
   const [value, setValue] = React.useState("");
   const { nextMove, gameStatus, selectSpace, computersNextMove } =
     React.useContext(GameContext);
+
   const { xColor, oColor, boardDimensions, letterSize } = React.useContext(
     CustomizationsContext
   );
@@ -33,7 +34,6 @@ const BoardSpace = ({ index, ...delegated }) => {
     setValue(nextMove);
     selectSpace(nextMove, index);
   };
-
   return (
     <Button
       className='board-space'

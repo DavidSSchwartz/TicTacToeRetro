@@ -1,9 +1,11 @@
 import React from "react";
 import { GameContext } from "./GameProvider";
 import Board from "../Board";
-import Title from "../Title/Title";
-import ResetButton from "../ResetButton/ResetButton";
+import Title from "../Title";
+import ResetButton from "../ResetButton";
 import Confetti from "react-confetti";
+import ThreeDX from "../ThreeDBoard";
+import ComputerDifficultyButtons from "../ComputerDifficultyButtons";
 
 export default function Game() {
   const { gameStatus, nextMove, winner, resetGame, confettiActivated } =
@@ -21,6 +23,7 @@ export default function Game() {
           </Title>
 
           <Board></Board>
+          <ThreeDX />
           {confettiActivated && (
             <Confetti
               tweenDuration={3000}
@@ -33,7 +36,7 @@ export default function Game() {
             />
           )}
         </fieldset>
-
+        <ComputerDifficultyButtons />
         <ResetButton reset={resetGame} />
       </section>
     </>
