@@ -27,12 +27,12 @@ const GameProvider = ({ children }) => {
     gameStatus
   );
 
-  const selectSpace = (value, index) => {
+  const selectSpace = (value, index, player) => {
     const updatedSelections = { ...selections, [index]: value };
 
     const winningLine = calculateWinner(updatedSelections);
     if (winningLine) {
-      setWinner(value);
+      setWinner(player);
       setWinningLine(winningLine);
       setGameStatus("Winner");
     } else if (Object.keys(updatedSelections).length === MAX_NUMBER_OF_SPACES) {

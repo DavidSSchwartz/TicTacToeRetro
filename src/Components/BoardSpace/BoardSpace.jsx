@@ -8,7 +8,9 @@ const BoardSpace = ({ index, ...delegated }) => {
   const { nextMove, gameStatus, selectSpace, computersNextMove } =
     React.useContext(GameContext);
 
-  const { xColor, oColor } = React.useContext(CustomizationsContext);
+  const { xColor, oColor, player1Char, player2Char } = React.useContext(
+    CustomizationsContext
+  );
 
   React.useEffect(() => {
     if (gameStatus === "Idle") {
@@ -19,7 +21,7 @@ const BoardSpace = ({ index, ...delegated }) => {
   React.useEffect(() => {
     if (index === computersNextMove) {
       setValue("O");
-      selectSpace("O", index);
+      selectSpace("O", index, player2Char);
     }
   }, [computersNextMove]);
 
@@ -30,7 +32,7 @@ const BoardSpace = ({ index, ...delegated }) => {
     }
 
     setValue(nextMove);
-    selectSpace(nextMove, index);
+    selectSpace(nextMove, index, player1Char);
   };
   return (
     <Button
@@ -44,7 +46,8 @@ const BoardSpace = ({ index, ...delegated }) => {
       }}
       {...delegated}
     >
-      {value}
+      {value === "X" && player1Char}
+      {value === "O" && player2Char}
     </Button>
   );
 };
