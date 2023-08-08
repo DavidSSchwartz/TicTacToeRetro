@@ -4,7 +4,7 @@ import Board from "../Board";
 import Title from "../Title";
 import ResetButton from "../ResetButton";
 import Confetti from "react-confetti";
-import ThreeDX from "../ThreeDBoard";
+// import ThreeDX from "../ThreeDBoard";
 import ComputerDifficultyButtons from "../ComputerDifficultyButtons";
 
 export default function Game() {
@@ -25,7 +25,7 @@ export default function Game() {
           </Title>
 
           <Board></Board>
-          <ThreeDX />
+          {/* <ThreeDX /> */}
           {confettiActivated && (
             <Confetti
               tweenDuration={3000}
