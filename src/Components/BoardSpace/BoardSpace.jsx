@@ -8,9 +8,7 @@ const BoardSpace = ({ index, ...delegated }) => {
   const { nextMove, gameStatus, selectSpace, computersNextMove } =
     React.useContext(GameContext);
 
-  const { xColor, oColor, boardDimensions, letterSize } = React.useContext(
-    CustomizationsContext
-  );
+  const { xColor, oColor } = React.useContext(CustomizationsContext);
 
   React.useEffect(() => {
     if (gameStatus === "Idle") {
@@ -40,9 +38,9 @@ const BoardSpace = ({ index, ...delegated }) => {
       onClick={handleClick}
       style={{
         color: value === "X" ? xColor : oColor,
-        width: parseInt(boardDimensions) / 3,
-        height: parseInt(boardDimensions) / 3,
-        fontSize: letterSize,
+        width: 175 / 3,
+        height: 175 / 3,
+        fontSize: "1.75rem",
       }}
       {...delegated}
     >

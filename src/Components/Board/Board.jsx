@@ -2,16 +2,15 @@ import React from "react";
 import BoardSpace from "../BoardSpace";
 import { range } from "../../util";
 import { GameContext } from "../Game/GameProvider";
-import { CustomizationsContext } from "../Customizations/CustomizationsProvider";
 
 const Board = () => {
   const { gameStatus, winnerStreakStyles } = React.useContext(GameContext);
-  const { boardDimensions } = React.useContext(CustomizationsContext);
+
   return (
     <>
       <div
         className={`board-container`}
-        style={{ width: boardDimensions, height: boardDimensions }}
+        style={{ width: '175px', height: '175px' }}
       >
         {range(9).map((num) => (
           <BoardSpace

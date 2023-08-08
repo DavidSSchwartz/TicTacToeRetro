@@ -94,8 +94,10 @@ const calculateWinner = (squares) => {
 
 //clean up computer- make hook
 //documentation for computer
+//easy,medium, and hard buttons
+
+//start styling
 //entrance screen, maybe some sort of animation
 //choose "play against a friend" "play against a computer"
-//easy,medium, and hard buttons
 //add sound
-// customiztion- take out growing board, add in replacing character
+// customiztion- take out growing board, add in replacing character inputs
