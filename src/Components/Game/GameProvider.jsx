@@ -14,18 +14,15 @@ const GameProvider = ({ children }) => {
   const [winner, setWinner] = React.useState("");
   const [winningLine, setWinningLine] = React.useState([]);
   const [lastSpaceFilled, setLastSpaceFilled] = React.useState(null);
+  const [gameMode, setGameMode] = React.useState(null);
 
   const [winnerStreakStyles, confettiActivated] = useWinnerEffects(
     winningLine,
     gameStatus
   );
 
-  const [computersNextMove, setComputerDifficulty, computerDifficulty] = useComputer(
-    nextMove,
-    selections,
-    lastSpaceFilled,
-    gameStatus
-  );
+  const [computersNextMove, setComputerDifficulty, computerDifficulty] =
+    useComputer(nextMove, selections, lastSpaceFilled, gameStatus);
 
   const selectSpace = (value, index, player) => {
     const updatedSelections = { ...selections, [index]: value };
@@ -72,6 +69,8 @@ const GameProvider = ({ children }) => {
         computersNextMove,
         setComputerDifficulty,
         computerDifficulty,
+        gameMode,
+        setGameMode,
       }}
     >
       {children}

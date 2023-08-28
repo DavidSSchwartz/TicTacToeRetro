@@ -10,22 +10,33 @@ import ComputerDifficultyButtons from "../ComputerDifficultyButtons";
 export default function Game() {
   const [backgroundColor, setBackgroundColor] = React.useState("green");
 
-  const { gameStatus, nextMove, winner, resetGame, confettiActivated,computerDifficulty } =
-    React.useContext(GameContext);
+  const {
+    gameStatus,
+    nextMove,
+    winner,
+    resetGame,
+    confettiActivated,
+    computerDifficulty,
+    gameMode,
+  } = React.useContext(GameContext);
 
-    React.useEffect(() => {
-      if (computerDifficulty === "Easy") {
-        setBackgroundColor("green");
-      } else if (computerDifficulty === "Medium") {
-        setBackgroundColor("yellow");
-      } else {
-        setBackgroundColor("red");
-      }
-    }, [computerDifficulty]);
+  React.useEffect(() => {
+    if (computerDifficulty === "Easy") {
+      setBackgroundColor("green");
+    } else if (computerDifficulty === "Medium") {
+      setBackgroundColor("yellow");
+    } else {
+      setBackgroundColor("red");
+    }
+  }, [computerDifficulty]);
+
   return (
     <>
       <section>
-        <fieldset className='game'  style={{ boxShadow: ` 1px 1px 5px ${backgroundColor}` }}>
+        <fieldset
+          className='game'
+          style={{ boxShadow: ` 1px 1px 5px ${backgroundColor}` }}
+        >
           <Title>
             {gameStatus === "Idle" && `Let's get this started!`}
             {/* dont need this line if playing against computer */}
@@ -49,9 +60,9 @@ export default function Game() {
             />
           )}
         </fieldset>
-        <div className="btns-container">
-        <ComputerDifficultyButtons />
-        <ResetButton reset={resetGame} />
+        <div className='btns-container'>
+          {gameMode === "Computer" && <ComputerDifficultyButtons />}
+          <ResetButton reset={resetGame} />
         </div>
       </section>
     </>

@@ -5,7 +5,7 @@ import { CustomizationsContext } from "../Customizations/CustomizationsProvider"
 
 const BoardSpace = ({ index, ...delegated }) => {
   const [value, setValue] = React.useState("");
-  const { nextMove, gameStatus, selectSpace, computersNextMove } =
+  const { nextMove, gameStatus, selectSpace, computersNextMove, gameMode } =
     React.useContext(GameContext);
 
   const { xColor, oColor, player1Char, player2Char } = React.useContext(
@@ -19,6 +19,9 @@ const BoardSpace = ({ index, ...delegated }) => {
   }, [gameStatus]);
 
   React.useEffect(() => {
+    if (gameMode === "Player") {
+      return;
+    }
     if (index === computersNextMove) {
       setValue("O");
       selectSpace("O", index, player2Char);
