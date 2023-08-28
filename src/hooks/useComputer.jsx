@@ -19,7 +19,7 @@ const useComputer = (nextMove, selections, lastSpaceFilled, gameStatus) => {
       );
     }
   }, [nextMove]);
-  return [computersNextMove, setComputerDifficulty];
+  return [computersNextMove, setComputerDifficulty, computerDifficulty];
 };
 
 const playComputersTurn = (takenSpaces, latestMove, computerDifficulty) => {

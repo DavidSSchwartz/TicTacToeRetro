@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Title({children}) {
-  return <legend>{children}</legend>;
+  return <legend className="game-legend">{children}</legend>;
 }
 
 export default Title;

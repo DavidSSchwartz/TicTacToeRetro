@@ -40,9 +40,6 @@ const BoardSpace = ({ index, ...delegated }) => {
       onClick={handleClick}
       style={{
         color: value === "X" ? xColor : oColor,
-        width: 175 / 3,
-        height: 175 / 3,
-        fontSize: "1.75rem",
       }}
       {...delegated}
     >

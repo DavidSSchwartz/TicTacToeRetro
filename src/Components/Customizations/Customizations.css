@@ -1,0 +1,19 @@
+.customizations-container {
+    position: absolute;
+    right: 0;
+    top: 10%;
+}
+.customizations {
+    display: flex;
+    gap: .5rem;
+}
+.customizations-reset{
+    align-self:flex-end;
+    margin-top: 1rem;
+}
+.margin-top {
+    margin-top: .5rem;
+}
+.margin-left{
+    margin-left: .5rem;
+}

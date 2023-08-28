@@ -1,3 +1,6 @@
+:root {
+  --board-size: 500px;
+}
 * {
   box-sizing: border-box;
 }
@@ -11,46 +14,6 @@ body {
   min-height: 100vh;
 }
 
-/* #root{
-  display: flex;
-} */
-/* h1 {
-  margin-top: 0;
-  font-size: 22px;
-}
-
-h2 {
-  margin-top: 0;
-  font-size: 20px;
-}
-
-h3 {
-  margin-top: 0;
-  font-size: 18px;
-}
-
-h4 {
-  margin-top: 0;
-  font-size: 16px;
-}
-
-h5 {
-  margin-top: 0;
-  font-size: 14px;
-}
-
-h6 {
-  margin-top: 0;
-  font-size: 12px;
-}
-
-code {
-  font-size: 1.2em;
-}
-
-ul {
-  padding-left: 20px;
-} */
 button,
 input {
   cursor: pointer;
@@ -58,6 +21,7 @@ input {
 button[disabled] {
   cursor: not-allowed;
 }
+
 .color-picker {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -84,43 +48,48 @@ button[disabled] {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   position: relative;
+  width: var(--board-size);
+  height: var(--board-size);
 }
 
-.winner-streak{
-    content: "";
-    position: absolute;
-    width:5px;
-    background-color: red;
-    height: 100%;
-    top: 0;
-    animation: winner-streak 2750ms forwards;
+.winner-streak {
+  content: "";
+  position: absolute;
+  width: 10px;
+  background-color: red;
+  height: 100%;
+  top: 0;
+  animation: winner-streak 2750ms forwards;
 }
 
-@keyframes winner-streak{
-    0%{
-        opacity: 100%;
-    }
-    20%{
-        opacity: 0;
-    }
-    40%{
-        opacity: 100%;
-    }
-    60%{
-        opacity: 0;
-    }
-    80%{
-        opacity: 100%;
-    }
-    100%{
-        opacity: 50%;
-    }
+@keyframes winner-streak {
+  0% {
+    opacity: 100%;
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 100%;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 50%;
+  }
 }
 
 .board-space {
-  border: 1px solid black;
+  border: 2px solid black;
   background: transparent;
   border-radius: 0;
+  width: calc(var(--board-size) / 3);
+  height: calc(var(--board-size) / 3);
+  font-size: 6rem;
 }
 .board-space:nth-child(1),
 .board-space:nth-child(2),
@@ -141,4 +110,114 @@ button[disabled] {
 .board-space:nth-child(8),
 .board-space:nth-child(9) {
   border-bottom: 0;
+}
+
+.cdb-btn-container {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.btn {
+  align-items: center;
+  background-color: hsl(240, 2%, 95%);
+  background-position: 0 0;
+  border: 1px solid hsl(240, 50%, 94%);
+  border-radius: 11px;
+  color: hsl(240, 7%, 19%);
+  display: flex;
+  font-size: 1.75rem;
+  font-weight: 700;
+  height: 50px;
+  padding: 2px 20px;
+  transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  touch-action: manipulation;
+  white-space: nowrap;
+  word-break: break-word;
+}
+
+.btn:active,
+.btn:hover,
+.btn:focus {
+  outline: 0;
+}
+
+.btn:active,
+.btn.selected {
+  background-color: hsl(240, 7%, 19%);
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+  color: #ffffff;
+}
+
+.btn:hover {
+  background-color: hsl(0, 0%, 81%);
+  border-color: hsl(240, 2%, 56%);
+}
+
+.btn:active:hover,
+.btn:focus:hover,
+.btn:focus,
+.btn.selected {
+  background-color: hsl(240, 7%, 19%);
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+  color: #ffffff;
+}
+
+.reset-btn {
+  background-color: #ffe7e7;
+  height: 30px;
+  padding: 2px 16px;
+  font-size: 1.2rem;
+  color: #d33a2c;
+}
+
+.reset-btn:active {
+  background-color: #d33a2c;
+}
+
+.reset-btn:hover {
+  background-color: #ffe3e3;
+  border-color: #faa4a4;
+}
+
+.reset-btn:active:hover,
+.reset-btn:focus:hover,
+.reset-btn:focus {
+  background-color: #d33a2c;
+}
+
+.btns-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-legend {
+  padding: 0;
+  background: #fff;
+}
+
+/* .text-input-container {
+  display: inline-block;
+  width: 150px;
+} */
+/* .text-input-container label {
+  padding-right: 5px;
+} */
+.text-input {
+  height: 30px;
+  padding: 6px;
+  border-radius: 5px;
+  border-width: 1px;
+  font-size: 1rem;
+  width: 45px;
+}
+
+/* create tool for copmaring shadings of colors */
+
+.flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
 }

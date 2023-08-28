@@ -29,17 +29,17 @@ const configureWinnerStreak = (winningLine) => {
         if (i === 0) {
           return { ...styles, top: "-34%" };
         } else if (i === 1) {
-          return { ...styles, top: "0" };
+          return { ...styles, top: "-.5%" };
         } else if (i === 2) {
-          return { ...styles, top: "34%" };
+          return { ...styles, top: "33%" };
         }
       }
       if (i === 3) {
-        return { left: "15%" };
+        return { left: "15.5%" };
       } else if (i === 4) {
         return { left: "49%" };
       } else if (i === 5) {
-        return { right: "15%" };
+        return { right: "15.5%" };
       } else if (i === 6) {
         return { transform: "rotate(-45deg)", left: "49%" };
       } else if (i === 7) {

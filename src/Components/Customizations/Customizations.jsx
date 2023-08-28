@@ -3,46 +3,37 @@ import Title from "../Title";
 import ColorPicker from "../ColorPicker";
 import ResetButton from "../ResetButton";
 import { CustomizationsContext } from "./CustomizationsProvider";
-import TextInput from "../TextInput/TextInput";
+import TextInput from "../TextInput";
+import "./Customizations.css";
+import CustomizationsTextInput from "../CustomizationsTextInput/CustomizationsTextInput";
 
 function Customizations() {
-  const { resetCustomizations, setPlayer1Char, setPlayer2Char } =
+  const { resetCustomizations, setPlayer1Char, setPlayer2Char} =
     React.useContext(CustomizationsContext);
 
   return (
-    <section>
-      <fieldset>
-        <Title>Let's spice it up a bit!</Title>
-        <ColorPicker of='X'>X Color</ColorPicker>
-        <ColorPicker of='O'>O Color</ColorPicker>
-        <TextInput
-          onBlur={(event) => {
-            if (event.target.value === "") {
-              setPlayer1Char("X");
-            } else {
-              setPlayer1Char(event.target.value);
-            }
-          }}
-          maxLength='3'
-          placeHolder='X'
-        >
-          Insert alternative character for
-        </TextInput>
-        <TextInput
-          onBlur={(event) => {
-            if (event.target.value === "") {
-              setPlayer2Char("O");
-            } else {
-              setPlayer2Char(event.target.value);
-            }
-          }}
-          maxLength='3'
-          placeHolder='O'
-        >
-          Insert alternative character for
-        </TextInput>
+    <section className='customizations-container'>
+      <fieldset className='customizations flex-column'>
+        <Title>Spice it up a bit!</Title>
+        <span className='margin-top'>Color:</span>
+        <div className='customizations margin-left'>
+          <ColorPicker of='X'>Player 1</ColorPicker>
+          <ColorPicker of='O'>Player 2</ColorPicker>
+        </div>
+        <div className='customizations flex-column'>
+          <div className='flex flex-column'>
+            Alternate <span>character for:</span>
+          </div>
+          <div className='customizations margin-left'>
+            <CustomizationsTextInput setCharacter={setPlayer1Char} defaultVal={'X'}/>
+            <CustomizationsTextInput setCharacter={setPlayer2Char} defaultVal={'O'} />
+          </div>
+        </div>
+        <ResetButton
+          reset={resetCustomizations}
+          className='customizations-reset'
+        />
       </fieldset>
-      <ResetButton reset={resetCustomizations} />
     </section>
   );
 }

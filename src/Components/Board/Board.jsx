@@ -4,13 +4,14 @@ import { range } from "../../util";
 import { GameContext } from "../Game/GameProvider";
 
 const Board = () => {
-  const { gameStatus, winnerStreakStyles } = React.useContext(GameContext);
+  const { gameStatus, winnerStreakStyles } =
+    React.useContext(GameContext);
+
 
   return (
     <>
       <div
         className={`board-container`}
-        style={{ width: '175px', height: '175px' }}
       >
         {range(9).map((num) => (
           <BoardSpace

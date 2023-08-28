@@ -20,7 +20,7 @@ const GameProvider = ({ children }) => {
     gameStatus
   );
 
-  const [computersNextMove, setComputerDifficulty] = useComputer(
+  const [computersNextMove, setComputerDifficulty, computerDifficulty] = useComputer(
     nextMove,
     selections,
     lastSpaceFilled,
@@ -71,6 +71,7 @@ const GameProvider = ({ children }) => {
         confettiActivated,
         computersNextMove,
         setComputerDifficulty,
+        computerDifficulty,
       }}
     >
       {children}

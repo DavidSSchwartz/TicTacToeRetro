@@ -16,8 +16,7 @@ function ColorPicker({ of, children }) {
   };
 
   return (
-    <div>
-      <label htmlFor={`color-picker-${id}`}>{children}</label>
+    <div className="flex flex-column">
       <input
         type='color'
         className='color-picker'
@@ -25,6 +24,7 @@ function ColorPicker({ of, children }) {
         onChange={handleChange}
         value={of === "X" ? xColor : oColor}
       />{" "}
+      <label htmlFor={`color-picker-${id}`}>{children}</label>
     </div>
   );
 }

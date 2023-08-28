@@ -9,7 +9,7 @@ function App() {
     //Enter name for first or second player
     <GameProvider>
       <CustomizationsProvider>
-        <div style={{ display: "flex" }}>
+        <div className='flex'>
           <Game />
           <Customizations />
         </div>
