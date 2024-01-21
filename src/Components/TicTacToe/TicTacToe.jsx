@@ -16,7 +16,7 @@ function TicTacToe() {
           <ReturnToHome />
           <Game />
           <Customizations />
-        </>
+          </>
       )}
     </div>
   );

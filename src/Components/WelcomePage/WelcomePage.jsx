@@ -1,15 +1,14 @@
 import React from "react";
-import { GameContext } from "../Game/GameProvider";
+import SplashScreen from "../SplashScreen";
 
 function WelcomePage() {
-  const {setGameMode} = React.useContext(GameContext);
 
   return (
-    <div>
-      welcome gif
-      <button onClick={()=>setGameMode('Player')}>Play Against A Friend</button>
-      <button onClick={()=>setGameMode('Computer')}>Play Against The Computer</button>
-    </div>
+    <>
+      <div style={{ position: "relative" }}>
+        <SplashScreen />
+      </div>
+    </>
   );
 }
 

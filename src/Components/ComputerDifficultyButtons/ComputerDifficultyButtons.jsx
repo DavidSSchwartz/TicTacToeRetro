@@ -10,19 +10,19 @@ function ComputerDifficultyButtons() {
   return (
     <div className='cdb-btn-container'>
       <Button
-        className={`btn ${computerDifficulty === "Easy" && "selected"}`}
+        className={`button-30 ${computerDifficulty === "Easy" && "selected"} game-btn`}
         onClick={() => setComputerDifficulty("Easy")}
       >
         Easy
       </Button>
       <Button
-        className={`btn ${computerDifficulty === "Medium" && "selected"}`}
+        className={`button-30 ${computerDifficulty === "Medium" && "selected"} game-btn`}
         onClick={() => setComputerDifficulty("Medium")}
       >
         Medium
       </Button>
       <Button
-        className={`btn ${computerDifficulty === "Hard" && "selected"}`}
+        className={`button-30 ${computerDifficulty === "Hard" && "selected"} game-btn`}
         onClick={() => setComputerDifficulty("Hard")}
       >
         Hard

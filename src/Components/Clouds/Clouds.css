@@ -1,0 +1,186 @@
+.clouds {
+  position: absolute;
+  width: 100%;
+  height: 97%;
+  overflow: hidden;
+  z-index: 1;
+}
+.cloud-container {
+  position: absolute;
+  width: 100%;
+}
+
+.cloud {
+  animation: clouds 60s infinite linear;
+  border-radius: 10px;
+  position: relative;
+  margin: 33px 0 0 0;
+  width: 54px;
+  height: 5px;
+  background: #f7e7eb;
+  &.tiny {
+    transform: scale(0.5);
+  }
+
+  &.small {
+    transform: scale(1);
+  }
+
+  &.normal {
+    transform: scale(2);
+  }
+
+  &.large {
+    transform: scale(4);
+  }
+}
+.cloud div {
+  box-shadow: inset -2px -3px 0 0 #f7e7eb;
+  position: absolute;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  left: -3px;
+  bottom: 0;
+  background: #fafbf0;
+  z-index: 10;
+
+  &:first-child {
+    & + div {
+      transform: scale(1.6, 1.6);
+      margin: 0 0 4px 13px;
+      z-index: 9;
+
+      & + div {
+        transform: scale(2.4, 2.4);
+        margin: 0 0 9px 32px;
+        z-index: 8;
+
+        & + div {
+          transform: scale(1.3, 1.3);
+          margin: 0 0 2px 50px;
+          z-index: 7;
+        }
+      }
+    }
+  }
+}
+
+.cloud-from-right {
+  animation: clouds-from-right 60s infinite linear;
+  margin-top: 10%;
+}
+
+@keyframes clouds {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes clouds-from-right {
+  0% {
+    right: 0;
+  }
+
+  100% {
+    right: 100%;
+  }
+}
+
+.cloud-1 {
+  top: 15%;
+  & > div {
+    animation-duration: 33s;
+    /* margin-top: 7em; */
+  }
+}
+
+.cloud-2 {
+    top:20%;
+  & > div {
+    animation-duration: 25s;
+    margin-left: 90%;
+  }
+}
+
+.cloud-3 {
+    top:18%;
+  & > div {
+    animation-duration: 42s;
+    margin-left: 50%;
+  }
+}
+
+.cloud-4 {
+    top: 11%;
+  & > div {
+    animation-duration: 22s;
+    margin-left: 43%;
+  }
+}
+
+.cloud-5 {
+    top:10%;
+  & > div {
+    animation-duration: 25s;
+    margin-left: 100%;
+  }
+}
+
+.cloud-6 {
+    top:25%;
+  & > div {
+    animation-duration: 49s;
+    margin-left: 5%;
+  }
+}
+.cloud-7 {
+    top:19%;
+  & > div {
+    animation-duration: 19s;
+    margin-left: 89%;
+  }
+}
+
+.cloud-8 {
+    top:8%;
+  & > div {
+    animation-duration: 21s;
+    margin-left: 40%;
+  }
+}
+
+.cloud-9 {
+  & > div {
+    animation-duration: 11s;
+    margin-left: 95%;
+  }
+}
+
+.cloud-10 {
+    top: 17%;
+  & > div {
+    animation-duration: 26s;
+    margin-left: 84%;
+  }
+}
+
+.cloud-11 {
+    top:25%;
+  & > div {
+    animation-duration: 29s;
+    margin-left: 73%;
+  }
+}
+
+.cloud-12 {
+  top: 20%;
+  & > div {
+    animation-duration: 23s;
+    margin-left: 51%;
+  }
+}

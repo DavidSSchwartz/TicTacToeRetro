@@ -41,7 +41,8 @@ export default function Game() {
             {gameStatus === "Idle" && `Let's get this started!`}
             {/* dont need this line if playing against computer */}
             {/* instead have  {gameStatus === "Playing" && `And the game is on!!!`}  */}
-            {gameStatus === "Playing" && `Next turn goes to: ${nextMove}`}
+            {gameMode === "Computer" && gameStatus === "Playing" && 'And the game is on!!!'}
+            {gameMode !== "Computer" && gameStatus === "Playing" && `Next turn goes to: ${nextMove}`}
             {gameStatus === "Winner" && `And the winner is ${winner}!!!`}
             {gameStatus === "Tie" && `Looks like we have a tie!`}
           </Title>

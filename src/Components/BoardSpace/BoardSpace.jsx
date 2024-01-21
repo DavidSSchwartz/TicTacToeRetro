@@ -5,6 +5,7 @@ import { CustomizationsContext } from "../Customizations/CustomizationsProvider"
 
 const BoardSpace = ({ index, ...delegated }) => {
   const [value, setValue] = React.useState("");
+  
   const { nextMove, gameStatus, selectSpace, computersNextMove, gameMode } =
     React.useContext(GameContext);
 

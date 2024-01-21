@@ -1,10 +1,20 @@
 :root {
-  --board-size: 500px;
+  --board-size: 450px;
+  --board-size-splash: 400px;
 }
 * {
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: bubbleBobbie;
+  src: url(../src/assets/fonts/BubbleBobble-MVpLp.otf);
+}
+
+@font-face {
+  font-family: Reglisse-regular;
+  src: url(../src/assets/fonts/Reglisse-0WOD9.otf);
+}
 body {
   font-family: sans-serif;
   margin: 0;
@@ -12,6 +22,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: rgb(65, 186, 238);
 }
 
 button,
@@ -84,12 +95,13 @@ button[disabled] {
 }
 
 .board-space {
-  border: 2px solid black;
+  border: 5px solid black;
   background: transparent;
   border-radius: 0;
   width: calc(var(--board-size) / 3);
   height: calc(var(--board-size) / 3);
   font-size: 6rem;
+  position: relative;
 }
 .board-space:nth-child(1),
 .board-space:nth-child(2),
@@ -112,6 +124,39 @@ button[disabled] {
   border-bottom: 0;
 }
 
+.board-space:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  position: absolute;
+  border-radius: 30px;
+}
+.board-space:nth-child(1):after,
+.board-space:nth-child(4):after {
+  bottom: -10px;
+  left: -5px;
+}
+.board-space:nth-child(5):after {
+  background-color: #fff;
+}
+.board-space:nth-child(2):after,
+.board-space:nth-child(3):after {
+  top: -5px;
+  left: -10px;
+}
+.board-space:nth-child(6):after,
+.board-space:nth-child(9):after {
+  top: -10px;
+  right: -5px;
+}
+
+.board-space:nth-child(7):after,
+.board-space:nth-child(8):after {
+  bottom: -5px;
+  right: -10px;
+}
+
 .cdb-btn-container {
   display: flex;
   gap: 1rem;
@@ -121,7 +166,6 @@ button[disabled] {
 .btn {
   align-items: center;
   background-color: hsl(240, 2%, 95%);
-  background-position: 0 0;
   border: 1px solid hsl(240, 50%, 94%);
   border-radius: 11px;
   color: hsl(240, 7%, 19%);
@@ -142,21 +186,20 @@ button[disabled] {
   outline: 0;
 }
 
-.btn:active,
-.btn.selected {
+.button-30:active,
+.button-30.selected {
   background-color: hsl(240, 7%, 19%);
   box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
   color: #ffffff;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
   background-color: hsl(0, 0%, 81%);
   border-color: hsl(240, 2%, 56%);
 }
 
 .btn:active:hover,
-.btn:focus:hover,
-.btn:focus,
 .btn.selected {
   background-color: hsl(240, 7%, 19%);
   box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
@@ -171,19 +214,15 @@ button[disabled] {
   color: #d33a2c;
 }
 
-.reset-btn:active {
+.reset-btn:active,
+.reset-btn:active:hover {
   background-color: #d33a2c;
 }
 
-.reset-btn:hover {
+.reset-btn:hover,
+.reset-btn:focus {
   background-color: #ffe3e3;
   border-color: #faa4a4;
-}
-
-.reset-btn:active:hover,
-.reset-btn:focus:hover,
-.reset-btn:focus {
-  background-color: #d33a2c;
 }
 
 .btns-container {
@@ -213,6 +252,104 @@ button[disabled] {
   width: 45px;
 }
 
+/* CSS */
+.button-30 {
+  align-items: center;
+  appearance: none;
+  background: rgba(252, 252, 253, 0.9);
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395a;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+  width: 300px;
+}
+
+.button-30.game-btn {
+  width: 100px;
+}
+
+.button-30:focus {
+  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  transform: translateY(-2px);
+  background: rgb(252, 252, 253);
+}
+
+.button-30:active {
+  box-shadow: #d6d6e7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.button-30:active:hover,
+.button-30.selected {
+  background-color: hsl(240, 7%, 19%);
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+  color: #ffffff;
+}
+
+.game-container {
+  padding: 78px 100px 30px;
+  border: 1px solid black;
+  position: relative;
+  background-color: rgb(65, 186, 238);
+}
+
+.return-home-btn {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 50px;
+  overflow: hidden;
+  display: inline-block;
+  transition: width 1s;
+  padding: 0;
+}
+.return-home-btn > svg {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0 11.5px;
+}
+.return-home-btn > span {
+  vertical-align: super;
+}
+.return-home-btn:hover {
+  width: 325px;
+}
+
+fieldset {
+  background-color: #fff;
+  border-radius: 5px;
+  & legend {
+    border-radius: 2px;
+  }
+}
+
 /* create tool for copmaring shadings of colors */
 
 .flex {
@@ -220,4 +357,23 @@ button[disabled] {
 }
 .flex-column {
   flex-direction: column;
+}
+
+.reset-btn {
+  background-color: #ffe7e7;
+  height: 30px;
+  padding: 2px 16px;
+  font-size: 1.2rem;
+  color: #d33a2c;
+}
+
+.reset-btn:active,
+.reset-btn:active:hover {
+  background-color: #d33a2c;
+}
+
+.reset-btn:hover,
+.reset-btn:focus {
+  background-color: #ffe3e3;
+  border-color: #faa4a4;
 }
