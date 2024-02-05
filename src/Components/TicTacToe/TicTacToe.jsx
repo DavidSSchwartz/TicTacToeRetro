@@ -9,15 +9,20 @@ function TicTacToe() {
   const { gameMode } = React.useContext(GameContext);
 
   return (
-    <div className='flex'>
-      {!gameMode && <WelcomePage />}
-      {gameMode && (
-        <>
-          <ReturnToHome />
-          <Game />
-          <Customizations />
+    <div
+      className='central-container'
+      style={{ backgroundColor: !gameMode ? "#fff" : "#aceaff" }}
+    >
+      <div className='flex'>
+        {!gameMode && <WelcomePage />}
+        {gameMode && (
+          <>
+            <ReturnToHome />
+            <Game />
+            <Customizations />
           </>
-      )}
+        )}
+      </div>
     </div>
   );
 }

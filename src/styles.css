@@ -18,11 +18,7 @@
 body {
   font-family: sans-serif;
   margin: 0;
-  display: grid;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: rgb(65, 186, 238);
+
 }
 
 button,
@@ -31,6 +27,14 @@ input {
 }
 button[disabled] {
   cursor: not-allowed;
+}
+
+.central-container {
+  display: grid;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: ;
 }
 
 .color-picker {
