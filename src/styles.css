@@ -2,6 +2,7 @@
   --board-size: 450px;
   --board-size-splash: 400px;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -18,7 +19,6 @@
 body {
   font-family: sans-serif;
   margin: 0;
-
 }
 
 button,
@@ -34,7 +34,6 @@ button[disabled] {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: ;
 }
 
 .color-picker {
@@ -61,7 +60,7 @@ button[disabled] {
 }
 .board-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   position: relative;
   width: var(--board-size);
   height: var(--board-size);
@@ -99,6 +98,9 @@ button[disabled] {
 }
 
 .board-space {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 5px solid black;
   background: transparent;
   border-radius: 0;
@@ -142,7 +144,7 @@ button[disabled] {
   left: -5px;
 }
 .board-space:nth-child(5):after {
-  background-color: #fff;
+  display: none;
 }
 .board-space:nth-child(2):after,
 .board-space:nth-child(3):after {
@@ -347,6 +349,7 @@ button[disabled] {
 }
 
 fieldset {
+  display: inline-block;
   background-color: #fff;
   border-radius: 5px;
   & legend {
@@ -380,4 +383,20 @@ fieldset {
 .reset-btn:focus {
   background-color: #ffe3e3;
   border-color: #faa4a4;
+}
+@media screen and (max-width: 450px) {
+  :root {
+    --board-size: 400px;
+    --board-size-splash: 350px;
+  }
+  .board-space {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 365px) {
+  :root {
+    --board-size: 400px;
+    --board-size-splash: 300px;
+  }
 }

@@ -28,16 +28,21 @@ function SplashScreen() {
         </div>
       </div>
       <GrassAnimation />
-      <div className="button-container">
-      {/* <button onClick={() => setGameMode("Player")}>
-        Play Against A Friend
-      </button>
-      <button onClick={() => setGameMode("Computer")}>
-        Play Against The Computer
-      </button> */}
-      <button className="button-30" role="button" onClick={() => setGameMode("Player")}>Play Against A Friend</button>
-      <button className="button-30" role="button" onClick={() => setGameMode("Computer")}>Play Against The Computer</button>
-
+      <div className='button-container'>
+        <button
+          className='button-30 game-mode-select-btn'
+          role='button'
+          onClick={() => setGameMode("Player")}
+        >
+          Play Against A Friend
+        </button>
+        <button
+          className='button-30 game-mode-select-btn'
+          role='button'
+          onClick={() => setGameMode("Computer")}
+        >
+          Play Against The Computer
+        </button>
       </div>
     </>
   );
