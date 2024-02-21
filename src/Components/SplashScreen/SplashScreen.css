@@ -1,11 +1,10 @@
 .splash-screen-container {
   background-color: #aceaff;
-  /* rgb(60, 239, 239); */
   position: relative;
   display: grid;
   place-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   padding: 0;
 }
 .board-container-splash {
@@ -25,7 +24,6 @@
   animation: big-pop 0.8s forwards;
   display: inline-block;
   font-family: Reglisse-regular;
-  color: #000;
 }
 
 .button-container {

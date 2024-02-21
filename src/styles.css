@@ -33,7 +33,7 @@ button[disabled] {
   display: grid;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .color-picker {
@@ -109,6 +109,7 @@ button[disabled] {
   font-size: 6rem;
   position: relative;
   padding: 0;
+  color: #000;
 }
 .board-space:nth-child(1),
 .board-space:nth-child(2),
