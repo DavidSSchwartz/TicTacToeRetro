@@ -60,7 +60,7 @@ button[disabled] {
 }
 .board-container {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
   position: relative;
   width: var(--board-size);
   height: var(--board-size);
