@@ -108,6 +108,7 @@ button[disabled] {
   height: calc(var(--board-size) / 3);
   font-size: 6rem;
   position: relative;
+  padding: 0;
 }
 .board-space:nth-child(1),
 .board-space:nth-child(2),
