@@ -1,19 +1,41 @@
 .customizations-container {
+  transform: translateX(200px);
+}
+
+.customizations {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+}
+.customizations-reset {
+  align-self: flex-end;
+  margin-top: 1rem;
+}
+.margin-top {
+  margin-top: 0.5rem;
+}
+.margin-left {
+  margin-left: 0.5rem;
+}
+
+.customizations-toggle {
+    transform: translateX(1px);
+  background-color: #fff;
+  padding: 5px;
+  display: grid;
+  place-content: center;
+  border: 1px solid rgb(145, 145, 145);
+  border-right: none;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  transition: right 0.5s;
+}
+
+.customizations-full-container {
     position: absolute;
     right: 0;
     top: 10%;
-}
-.customizations {
+    transition: right .5s ease-in-out;
     display: flex;
-    gap: .5rem;
-}
-.customizations-reset{
-    align-self:flex-end;
-    margin-top: 1rem;
-}
-.margin-top {
-    margin-top: .5rem;
-}
-.margin-left{
-    margin-left: .5rem;
+    align-items: baseline;
 }
