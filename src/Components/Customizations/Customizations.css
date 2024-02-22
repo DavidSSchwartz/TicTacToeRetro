@@ -1,6 +1,3 @@
-.customizations-container {
-  transform: translateX(200px);
-}
 
 .customizations {
   display: flex;
@@ -32,10 +29,12 @@
 }
 
 .customizations-full-container {
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 10%;
     transition: right .5s ease-in-out;
     display: flex;
     align-items: baseline;
+    flex-direction: row-reverse;
+    transform: translateX(165px);
 }
