@@ -388,7 +388,7 @@ fieldset {
 }
 @media screen and (max-width: 450px) {
   :root {
-    --board-size: 400px;
+    --board-size: 350px;
     --board-size-splash: 350px;
   }
   .board-space {
@@ -398,7 +398,12 @@ fieldset {
 
 @media screen and (max-width: 365px) {
   :root {
-    --board-size: 400px;
+    --board-size: 300px;
     --board-size-splash: 300px;
+  }
+}
+@media screen and (max-width: 385px) {
+  :root {
+    --board-size: 300px;
   }
 }
