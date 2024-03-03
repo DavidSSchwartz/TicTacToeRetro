@@ -16,7 +16,7 @@
 }
 
 .customizations-toggle {
-    transform: translateX(1px);
+  transform: translateX(1px);
   background-color: #fff;
   padding: 5px;
   display: grid;
@@ -26,6 +26,7 @@
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
   transition: right 0.5s;
+  color: #000000;
 }
 
 .customizations-full-container {
