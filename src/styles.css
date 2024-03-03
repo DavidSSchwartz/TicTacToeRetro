@@ -393,7 +393,7 @@ fieldset {
   background-color: #ffe3e3;
   border-color: #faa4a4;
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
   :root {
     --board-size: 350px;
     --board-size-splash: 350px;
@@ -401,6 +401,17 @@ fieldset {
   .board-space {
     font-size: 5rem;
   }
+  .btns-container {
+    flex-direction: column;
+  }
+  .cdb-btn-container {
+    align-self: flex-start;
+  }
+  .reset-btn {
+    align-self: flex-end;
+    margin-top: 2em;
+  }
+
 }
 
 @media screen and (max-width: 365px) {
